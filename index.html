@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Ucok & Bulet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="weddingMusic" loop>
+            <source src="audio/music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Main Invitation -->
+    <main class="invitation-container">
+        <!-- Header Section -->
+        <header class="invitation-header">
+            <div class="flower-border top"></div>
+            <h1 class="invitation-title">You are invited to our wedding</h1>
+            <div class="couple-names">
+                <h2>Ucok <span class="ampersand">&</span> Bulet</h2>
+            </div>
+            <p class="wedding-date">Morgan. 17 April 2022</p>
+            <div class="flower-border bottom"></div>
+        </header>
+
+        <!-- Main Content -->
+        <section class="invitation-content">
+            <!-- Venue Details -->
+            <div class="venue-section">
+                <div class="venue-card">
+                    <div class="venue-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Kapraka Vth</h3>
+                    <p class="venue-address">
+                        Björv/Bur/Sandman/i<br>
+                        Romeo & Juliet<br>
+                        di Temput
+                    </p>
+                </div>
+            </div>
+
+            <!-- Decorative Separator -->
+            <div class="decorative-separator">
+                <div class="heart"><i class="fas fa-heart"></i></div>
+                <div class="line"></div>
+                <div class="heart"><i class="fas fa-heart"></i></div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="action-section">
+                <button class="open-invitation-btn" id="openBtn">
+                    BUKA UNDANGAN
+                    <i class="fas fa-envelope-open-text"></i>
+                </button>
+            </div>
+
+            <!-- Additional Info (Hidden until opened) -->
+            <div class="additional-info" id="additionalInfo">
+                <!-- Countdown Timer -->
+                <div class="countdown-section">
+                    <h3>Hitungan Mundur Pernikahan</h3>
+                    <div class="countdown-timer">
+                        <div class="time-unit">
+                            <span class="number" id="days">00</span>
+                            <span class="label">Hari</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="number" id="hours">00</span>
+                            <span class="label">Jam</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="number" id="minutes">00</span>
+                            <span class="label">Menit</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="number" id="seconds">00</span>
+                            <span class="label">Detik</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RSVP Form -->
+                <div class="rsvp-section">
+                    <h3>Konfirmasi Kehadiran</h3>
+                    <form id="rsvpForm" class="rsvp-form">
+                        <input type="text" placeholder="Nama Lengkap" required>
+                        <select required>
+                            <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                            <option value="hadir">Hadir dengan Senang Hati</option>
+                            <option value="tidak">Mohon Maaf, Tidak Dapat Hadir</option>
+                        </select>
+                        <textarea placeholder="Ucapan & Doa (opsional)" rows="3"></textarea>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Location Map -->
+                <div class="map-section">
+                    <h3>Lokasi Acara</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613506864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1638740484082!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Photo Gallery -->
+                <div class="gallery-section">
+                    <h3>Galeri Foto</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="invitation-footer">
+            <p class="thank-you">Terima Kasih Atas Perhatiannya</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2022 | Made with <i class="fas fa-heart"></i> for Ucok & Bulet</p>
+        </footer>
+    </main>
+
+    <!-- Confetti Animation -->
+    <div class="confetti-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
