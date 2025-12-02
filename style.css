@@ -613,3 +613,106 @@ body {
     margin-top: 10px;
     opacity: 0.8;
 }
+/* ===== MUSIC CONTROLS ===== */
+.music-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--pink-soft);
+}
+
+.music-btn {
+    background: var(--pink-gradient);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    background: var(--pink-dark);
+}
+
+.music-btn.playing {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(251, 111, 146, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(251, 111, 146, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(251, 111, 146, 0); }
+}
+
+#volumeSlider {
+    width: 80px;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--pink-light);
+    border-radius: 5px;
+    outline: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.music-controls:hover #volumeSlider {
+    opacity: 1;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--pink-deep);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#volumeSlider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--pink-deep);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Mobile responsive untuk music controls */
+@media (max-width: 768px) {
+    .music-controls {
+        bottom: 15px;
+        left: 15px;
+        padding: 8px 12px;
+    }
+    
+    .music-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    #volumeSlider {
+        width: 60px;
+    }
+}
