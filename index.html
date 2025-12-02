@@ -10,6 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+        <!-- Tambahkan di sebelum </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+    <script>
+    // Generate QR Code
+    function generateQRCode() {
+        const mapsUrl = `https://maps.google.com/?q=${latitude},${longitude}`;
+        QRCode.toCanvas(document.getElementById('qrcode'), mapsUrl, {
+            width: 150,
+            height: 150,
+            colorDark: "#FB6F92",
+            colorLight: "#FFE6E6",
+            margin: 1
+        }, function(error) {
+            if (error) console.error(error);
+        });
+    }
+    
+    // Panggil saat halaman siap
+    document.addEventListener('DOMContentLoaded', generateQRCode);
+    </script>
 <body>
     <!-- Music Player -->
     <div class="music-player">
@@ -109,17 +129,34 @@
                 </div>
 
                 <!-- Location Map -->
+               <!-- Ganti bagian map-section dengan ini: -->
                 <div class="map-section">
                     <h3>Lokasi Acara</h3>
                     <div class="map-container">
+                        <!-- Embed Google Maps dengan koordinat yang diberikan -->
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613506864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1638740484082!5m2!1sid!2sid" 
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15839.758704247944!2d111.21245586977541!3d-7.461360800000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMjcnNDEuMCJTIDExMcKwMTInNTEuMCJF!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
                             width="100%" 
-                            height="300" 
+                            height="400" 
                             style="border:0;" 
                             allowfullscreen="" 
-                            loading="lazy">
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+                    </div>
+                    <div class="map-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Koordinat: 7°27'41"S 111°12'51"E</p>
+                        <a href="https://www.google.com/maps?q=-7.461388888888889,111.21416666666667" 
+                           target="_blank" 
+                           class="direction-btn">
+                            <i class="fas fa-directions"></i> Buka di Google Maps App
+                        </a>
+                        <!-- Tambahkan di akhir map-info -->
+                        <div class="qrcode-section">
+                            <h4><i class="fas fa-qrcode"></i> Scan untuk Lokasi</h4>
+                            <div id="qrcode"></div>
+                            <p class="qrcode-note">Scan QR Code untuk membuka lokasi di ponsel Anda</p>
+                        </div>
                     </div>
                 </div>
 
