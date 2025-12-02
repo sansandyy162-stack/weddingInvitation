@@ -6,7 +6,7 @@ const weddingMusic = document.getElementById('weddingMusic');
 const rsvpForm = document.getElementById('rsvpForm');
 
 // Wedding Date (Past date for example)
-const weddingDate = new Date('April 17, 2022 10:00:00').getTime();
+const weddingDate = new Date('December 28, 2025 09:00:00').getTime();
 
 // Open Invitation Button
 openBtn.addEventListener('click', function() {
