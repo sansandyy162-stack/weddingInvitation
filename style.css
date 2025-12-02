@@ -1,0 +1,535 @@
+/* Pink Color Palette */
+:root {
+    --pink-light: #FFE6E6;
+    --pink-soft: #FFC2D1;
+    --pink-medium: #FF8FAB;
+    --pink-dark: #FB6F92;
+    --pink-deep: #FF5D8F;
+    --pink-accent: #FF97B7;
+    --pink-shadow: rgba(251, 111, 146, 0.3);
+    --pink-gradient: linear-gradient(135deg, #FFC2D1 0%, #FF8FAB 100%);
+    --text-dark: #5A2A3A;
+    --text-light: #FFF0F3;
+    --gold: #FFD166;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--pink-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Music Player */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-btn {
+    background: var(--pink-deep);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--pink-shadow);
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background: var(--pink-dark);
+    transform: scale(1.1);
+}
+
+/* Main Invitation Container */
+.invitation-container {
+    background: white;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px var(--pink-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Flower Border */
+.flower-border {
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M10,10 Q20,0 30,10 Q40,20 50,10 Q60,0 70,10 Q80,20 90,10" stroke="%23FF8FAB" fill="none" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="%23FF5D8F"/><circle cx="30" cy="10" r="3" fill="%23FF5D8F"/><circle cx="50" cy="10" r="3" fill="%23FF5D8F"/><circle cx="70" cy="10" r="3" fill="%23FF5D8F"/><circle cx="90" cy="10" r="3" fill="%23FF5D8F"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 100px 40px;
+    opacity: 0.8;
+}
+
+.flower-border.bottom {
+    transform: rotate(180deg);
+}
+
+/* Header Styles */
+.invitation-header {
+    text-align: center;
+    padding: 40px 30px 30px;
+    background: linear-gradient(to bottom, white 0%, var(--pink-light) 100%);
+    position: relative;
+}
+
+.invitation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--pink-dark);
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.invitation-title::before,
+.invitation-title::after {
+    content: "✽";
+    color: var(--pink-medium);
+    margin: 0 15px;
+    font-size: 1.5rem;
+}
+
+.couple-names h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    color: var(--pink-deep);
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.ampersand {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gold);
+    margin: 0 20px;
+    font-size: 3.5rem;
+    position: relative;
+    top: -5px;
+}
+
+.wedding-date {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    background: var(--pink-soft);
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px var(--pink-shadow);
+}
+
+/* Venue Section */
+.venue-section {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.venue-card {
+    background: var(--pink-gradient);
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px var(--pink-shadow);
+    border: 3px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+.venue-icon {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.venue-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.venue-address {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+/* Decorative Separator */
+.decorative-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    position: relative;
+}
+
+.heart {
+    color: var(--pink-deep);
+    font-size: 2rem;
+    margin: 0 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.line {
+    width: 100px;
+    height: 2px;
+    background: var(--pink-gradient);
+    border-radius: 2px;
+}
+
+/* Action Button */
+.action-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.open-invitation-btn {
+    background: var(--pink-gradient);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px var(--pink-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.open-invitation-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--pink-shadow);
+}
+
+.open-invitation-btn:active {
+    transform: translateY(0);
+}
+
+/* Additional Info */
+.additional-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+    padding: 0 30px;
+}
+
+.additional-info.show {
+    max-height: 2000px;
+    padding: 30px;
+}
+
+/* Countdown Timer */
+.countdown-section {
+    background: var(--pink-light);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.countdown-section h3 {
+    color: var(--pink-dark);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.time-unit {
+    background: white;
+    border-radius: 15px;
+    padding: 20px 15px;
+    min-width: 100px;
+    box-shadow: 0 5px 15px var(--pink-shadow);
+}
+
+.time-unit .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--pink-deep);
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.time-unit .label {
+    font-size: 1rem;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* RSVP Form */
+.rsvp-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 3px solid var(--pink-soft);
+}
+
+.rsvp-section h3 {
+    color: var(--pink-dark);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+    padding: 15px;
+    border: 2px solid var(--pink-soft);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+    outline: none;
+    border-color: var(--pink-deep);
+    box-shadow: 0 0 10px var(--pink-shadow);
+}
+
+.submit-btn {
+    background: var(--pink-gradient);
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--pink-shadow);
+}
+
+/* Map Section */
+.map-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.map-section h3 {
+    color: var(--pink-dark);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px var(--pink-shadow);
+    border: 3px solid var(--pink-soft);
+}
+
+/* Gallery Section */
+.gallery-section {
+    background: var(--pink-light);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.gallery-section h3 {
+    color: var(--pink-dark);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--pink-shadow);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.invitation-footer {
+    background: var(--pink-dark);
+    color: white;
+    text-align: center;
+    padding: 40px 30px;
+    margin-top: 30px;
+}
+
+.thank-you {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: var(--pink-light);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    margin-top: 25px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.copyright .fa-heart {
+    color: #FFE6E6;
+    animation: heartbeat 1.5s infinite;
+    margin: 0 5px;
+}
+
+/* Confetti */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .invitation-title {
+        font-size: 1.8rem;
+    }
+    
+    .couple-names h2 {
+        font-size: 3.5rem;
+    }
+    
+    .wedding-date {
+        font-size: 1.4rem;
+        padding: 8px 20px;
+    }
+    
+    .venue-card h3 {
+        font-size: 2rem;
+    }
+    
+    .venue-address {
+        font-size: 1.2rem;
+    }
+    
+    .open-invitation-btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .time-unit {
+        min-width: 70px;
+        padding: 15px 10px;
+    }
+    
+    .time-unit .number {
+        font-size: 2rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
