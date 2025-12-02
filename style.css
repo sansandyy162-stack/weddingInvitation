@@ -533,3 +533,83 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.map-info {
+    background: var(--pink-light);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+    border: 2px dashed var(--pink-medium);
+}
+
+.map-info p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.map-info .fa-map-marker-alt {
+    color: var(--pink-deep);
+    font-size: 1.3rem;
+}
+
+.direction-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--pink-gradient);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px var(--pink-shadow);
+}
+
+.direction-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--pink-shadow);
+    color: white;
+}
+
+.direction-btn:active {
+    transform: translateY(0);
+}
+.qrcode-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid var(--pink-soft);
+}
+
+.qrcode-section h4 {
+    color: var(--pink-dark);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#qrcode {
+    display: inline-block;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid var(--pink-light);
+}
+
+.qrcode-note {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-top: 10px;
+    opacity: 0.8;
+}
