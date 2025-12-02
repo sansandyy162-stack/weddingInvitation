@@ -37,10 +37,17 @@
             <i class="fas fa-music"></i>
         </button>
         <audio id="weddingMusic" loop>
-            <source src="audio/music.mp3" type="audio/mpeg">
+            <source src="audio/audio1.mp3" type="audio/mpeg">
         </audio>
     </div>
-
+    <!-- Music Control Button -->
+    <div class="music-controls">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle music">
+            <i class="fas fa-music"></i>
+        </button>
+        <input type="range" id="volumeSlider" min="0" max="100" value="50" 
+               aria-label="Volume control">
+    </div>
     <!-- Main Invitation -->
     <main class="invitation-container">
         <!-- Header Section -->
