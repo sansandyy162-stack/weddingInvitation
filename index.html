@@ -3,197 +3,960 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan - Lila & Rais</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-        <!-- Tambahkan di sebelum </body> -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
-    <script>
-    // Generate QR Code
-    function generateQRCode() {
-        const mapsUrl = `https://maps.google.com/?q=${latitude},${longitude}`;
-        QRCode.toCanvas(document.getElementById('qrcode'), mapsUrl, {
-            width: 150,
-            height: 150,
-            colorDark: "#FB6F92",
-            colorLight: "#FFE6E6",
-            margin: 1
-        }, function(error) {
-            if (error) console.error(error);
-        });
-    }
+    <title>The Wedding Trisna & Adji</title>
     
-    // Panggil saat halaman siap
-    document.addEventListener('DOMContentLoaded', generateQRCode);
-    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Light Gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --title-font: 'Great Vibes', cursive;
+            --title-color: #f3c177;
+            --title-size: 34px;
+            --common-font: 'Philosopher', sans-serif;
+            --common-color: #FFFFFF;
+            --common-size: 16px;
+            --nav-color: #1d1d1b;
+            --bg-color: #1d1d1b;
+        }
+
+        @media (min-width: 768px) {
+            :root {
+                --common-size: 19.2px;
+                --title-size: 40.8px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--common-font);
+            color: var(--common-color);
+            font-size: var(--common-size);
+            background: url('https://invit.me/assets/themes/tema12/bg.png') top center;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .container-body {
+            max-width: 720px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+        /* Loader Screen */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 9999;
+            background: url('https://invit.me/uploads/photo/tema12/pbg.jpg') center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            transition: opacity 1.5s ease;
+        }
+
+        #loader-wrapper:before {
+            content: "";
+            position: absolute;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            width: 100%;
+            height: 100%;
+        }
+
+        #loader-wrapper h2 {
+            font-family: var(--title-font);
+            font-size: var(--title-size);
+            color: white;
+            margin: 10px;
+            z-index: 1;
+        }
+
+        #loader-wrapper h5 {
+            color: white;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .btn-open {
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 8px 30px 9px 30px;
+            border-radius: 50px;
+            transition: 0.5s;
+            color: #fff;
+            cursor: pointer;
+            font-size: calc((var(--common-size) * 80)/100);
+            background: var(--nav-color);
+            box-shadow: 0px 3px 12px 0px rgba(255, 255, 255, 0.33);
+            border: none;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        /* Hero Sections */
+        .hero {
+            width: 100%;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .imgheader {
+            width: 100%;
+            margin-bottom: -100px;
+            z-index: 0;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .imgfooter {
+            width: 100%;
+            margin-top: -50px;
+        }
+
+        .part {
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Container Foto */
+        .container-imgphoto {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 50%;
+            margin: auto;
+            border-radius: 100%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .imgphoto {
+            width: 120%;
+            margin: -10%;
+            animation: rotation 30s infinite linear;
+        }
+
+        @keyframes rotation {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Typography */
+        .ftitle {
+            font-family: var(--title-font);
+            color: var(--title-color);
+            font-size: var(--title-size);
+        }
+
+        .fcover {
+            font-family: var(--title-font);
+            color: var(--title-color);
+            font-size: var(--title-size);
+        }
+
+        .fname {
+            font-family: var(--title-font);
+            color: var(--title-color);
+            font-size: var(--title-size);
+        }
+
+        /* Countdown Timer */
+        #timer {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #timer div {
+            display: inline-block;
+            min-width: 100px;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid var(--title-color);
+            margin: 15px;
+        }
+
+        #timer div span {
+            color: var(--title-color);
+            display: block;
+            font-size: calc((var(--common-size) * 140)/100);
+        }
+
+        /* Quote Section */
+        .quote {
+            text-align: center;
+            margin: auto;
+            padding: 15px;
+            border: 2px solid var(--title-color);
+            max-width: 100%;
+            position: relative;
+        }
+
+        blockquote {
+            font-style: italic;
+            position: relative;
+            z-index: 20;
+            margin: 0px;
+        }
+
+        /* Event Date Box */
+        .date-box {
+            background: url('https://invit.me/assets/themes/tema12/decor.png');
+            background-size: contain;
+            background-position-y: -292px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            padding-bottom: 30px;
+        }
+
+        .box {
+            padding: 20px 10px;
+            text-align: center;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            border-style: solid;
+            border-color: var(--title-color);
+            box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .evendate h3.date {
+            font-size: 94px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Buttons */
+        .btn-buy {
+            display: inline-block;
+            padding: 8px 40px 10px 40px;
+            border-radius: 50px;
+            border: 2px solid var(--title-color);
+            color: var(--common-color);
+            font-size: calc((var(--common-size) * 80)/100);
+            transition: 0.3s;
+            line-height: 1.5;
+            background: none;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-buy:hover {
+            background: var(--title-color);
+            color: var(--bg-color);
+            text-decoration: none;
+        }
+
+        .btn-learn-more {
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            transition: 0.3s;
+            line-height: 1;
+            margin-top: 6px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid var(--title-color);
+            color: var(--title-color);
+            font-weight: bold;
+            background: none;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Love Story Timeline */
+        .cd-timeline {
+            overflow: hidden;
+            padding: 2em 0;
+            color: var(--common-color);
+            font-family: var(--common-font);
+        }
+
+        .cd-timeline__container {
+            position: relative;
+            padding: 1.25em 0;
+        }
+
+        .cd-timeline__container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 18px;
+            height: 100%;
+            width: 4px;
+            background: var(--title-color);
+            opacity: .4;
+        }
+
+        .cd-timeline__block {
+            display: flex;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2em;
+        }
+
+        .cd-timeline__img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+                        0 3px 0 4px rgba(0, 0, 0, 0.05);
+            background-color: var(--title-color);
+        }
+
+        .cd-timeline__content {
+            flex-grow: 1;
+            position: relative;
+            margin-left: 1.25em;
+            border-radius: 0.25em;
+            padding: 1.25em;
+            box-shadow: 0 3px 0 var(--title-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gallery */
+        .img-responsive {
+            border: 5px solid white;
+            margin-bottom: 10px;
+            box-shadow: -1px 15px 22px -6px rgba(0,0,0,0.46);
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        .footerend {
+            margin-top: -259px;
+            background-image: url('https://invit.me/assets/themes/tema12/decor.png');
+            height: 259px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* Bottom Navigation */
+        .fixed-bottom {
+            z-index: 1000;
+            background: var(--nav-color);
+            padding: 10px 0;
+        }
+
+        .nav-link i {
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            color: var(--nav-color);
+            font-size: 20px;
+        }
+
+        /* Music Player */
+        .musik {
+            position: fixed;
+            right: 15px;
+            bottom: 100px;
+            z-index: 1000;
+            transition: 0.5s;
+        }
+
+        .musik i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            background: var(--nav-color);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container-imgphoto {
+                width: 70%;
+            }
+            
+            #timer div {
+                min-width: 70px;
+                padding: 10px;
+                margin: 5px;
+            }
+            
+            .date-box {
+                background-position-y: -170px;
+            }
+            
+            .evendate h3.date {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-imgphoto {
+                width: 80%;
+            }
+            
+            #timer div {
+                min-width: 60px;
+                padding: 8px;
+                margin: 3px;
+            }
+            
+            .fcover {
+                font-size: 8vw;
+            }
+        }
+
+        /* Animations */
+        [data-aos="rotate-c"] {
+            transform: rotate(-180deg);
+            transition-property: transform;
+        }
+
+        [data-aos="rotate-c"].aos-animate {
+            transform: rotate(0deg);
+        }
+
+        /* Common Utilities */
+        .t-center { text-align: center; }
+        .m-t-20 { margin-top: 20px; }
+        .m-b-20 { margin-bottom: 20px; }
+        .p-b-30 { padding-bottom: 30px; }
+        .common-size-2x { font-size: calc((var(--common-size) * 120)/100); }
+        .common-size-3x { font-size: calc((var(--common-size) * 140)/100); }
+    </style>
+</head>
 <body>
-    <!-- Music Player -->
-    <div class="music-player">
-        <button id="musicToggle" class="music-btn">
-            <i class="fas fa-music"></i>
-        </button>
-        <audio id="weddingMusic" loop>
-            <source src="audio/audio.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-    <!-- Music Control Button -->
-    <div class="music-controls">
-        <button id="musicToggle" class="music-btn" aria-label="Toggle music">
-            <i class="fas fa-music"></i>
-        </button>
-        <input type="range" id="volumeSlider" min="0" max="100" value="50" 
-               aria-label="Volume control">
-    </div>
-    <!-- Main Invitation -->
-    <main class="invitation-container">
-        <!-- Header Section -->
-        <header class="invitation-header">
-            <div class="flower-border top"></div>
-            <h1 class="invitation-title">You are invited to our wedding</h1>
-            <div class="couple-names">
-                <h2>Lila <span class="ampersand">&</span> Rais</h2>
-            </div>
-            <p class="wedding-date">Ngawi. 28 Desember 2025</p>
-            <div class="flower-border bottom"></div>
-        </header>
-
-        <!-- Main Content -->
-        <section class="invitation-content">
-            <!-- Venue Details -->
-            <div class="venue-section">
-                <div class="venue-card">
-                    <div class="venue-icon">
-                        <i class="fas fa-church"></i>
+    <!-- Loader Screen -->
+    <div id="loader-wrapper">
+        <div class="t-center cover-main">
+            <div class="section-title">
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="t-center">
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <h5 class="common-size-2x m-b-0">The Wedding</h5>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <h2 class="ftitle">Trisna & Adji</h2>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <h5 class="common-size-0x">31 Desember 2023</h5>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <span><p>Kepada Yth. Bapak/Ibu/Saudara/i :</p></span>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <span><p>Mohon maaf apabila ada kesalahan dalam penulisan nama/gelar.</p></span>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <button class="btn-open m-t-20">
+                                <i class="fas fa-envelope m-r-5"></i>Buka Undangan
+                            </button>
+                        </div>
                     </div>
-                    <h3>Kepada Yth</h3>
-                    <p class="venue-address">
-                        Saudara/i<br>
-                        Romeo & Juliet<br>
-                        di Tempat
-                    </p>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Decorative Separator -->
-            <div class="decorative-separator">
-                <div class="heart"><i class="fas fa-heart"></i></div>
-                <div class="line"></div>
-                <div class="heart"><i class="fas fa-heart"></i></div>
-            </div>
+    <!-- Main Container -->
+    <div class="container-body">
+        <!-- Home Section -->
+        <section class="hero" id="home">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <h2 class="ftitle">The Wedding</h2>
+                </div>
+                
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="container-imgphoto" style="background-image: url('https://invit.me/uploads/photo/tema12/pcouple.png');">
+                        <img src="https://invit.me/assets/themes/tema12/border.png" class="imgphoto" data-aos="rotate-c" data-aos-duration="1000">
+                    </div>
+                </div>
+                
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <h1 class="fcover">Trisna & Adji</h1>
+                </div>
+                
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <p>- Minggu -</p>
+                    <div class="common-size-2x">31 Desember 2023</div>
+                </div>
 
-            <!-- Action Button -->
-            <div class="action-section">
-                <button class="open-invitation-btn" id="openBtn">
-                    BUKA UNDANGAN
-                    <i class="fas fa-envelope-open-text"></i>
-                </button>
-            </div>
-
-            <!-- Additional Info (Hidden until opened) -->
-            <div class="additional-info" id="additionalInfo">
                 <!-- Countdown Timer -->
-                <div class="countdown-section">
-                    <h3>Hitungan Mundur Pernikahan</h3>
-                    <div class="countdown-timer">
-                        <div class="time-unit">
-                            <span class="number" id="days">00</span>
-                            <span class="label">Hari</span>
+                <div id="countdown">
+                    <div class="container">
+                        <div id="timer">
+                            <div class="fcommon">
+                                <span class="common-size-3x" id="days">00</span>
+                                <span class="fmain">Hari</span>
+                            </div>
+                            <div class="fcommon">
+                                <span class="common-size-3x" id="hours">00</span>
+                                <span class="fmain">Jam</span>
+                            </div>
+                            <div class="fcommon">
+                                <span class="common-size-3x" id="minutes">00</span>
+                                <span class="fmain">Menit</span>
+                            </div>
+                            <div class="fcommon">
+                                <span class="common-size-3x" id="seconds">00</span>
+                                <span class="fmain">Detik</span>
+                            </div>
                         </div>
-                        <div class="time-unit">
-                            <span class="number" id="hours">00</span>
-                            <span class="label">Jam</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="hero" id="couple">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div class="boxs">
+                    <div data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="t-center">
+                            <p>Assalamualaikum Wr. Wb.</p>
+                            <p>Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu dan Saudara/i menghadiri acara Pernikahan kami</p>
                         </div>
-                        <div class="time-unit">
-                            <span class="number" id="minutes">00</span>
-                            <span class="label">Menit</span>
-                        </div>
-                        <div class="time-unit">
-                            <span class="number" id="seconds">00</span>
-                            <span class="label">Detik</span>
+                    </div>
+                </div>
+                
+                <div class="section-title">
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <h3 class="ftitle"><span>Kedua Mempelai</span></h3>
+                    </div>
+                </div>
+
+                <!-- Bride -->
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="container-imgphoto" style="background-image: url('https://invit.me/uploads/photo/tema12/pbride.png');">
+                        <img src="https://invit.me/assets/themes/tema12/border.png" class="imgphoto" data-aos="rotate-c" data-aos-duration="1000">
+                    </div>
+                    
+                    <div class="member-info">
+                        <h2 class="fname">Trisna Puji Umariana</h2>
+                        <span class="common-size-2x">Putri dari Bapak Pamudji & Ibu Sri Asminah</span>
+                        <div class="m-t-15">
+                            <a href="#" class="m-r-10" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="#" class="m-r-10" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- RSVP Form -->
-                <div class="rsvp-section">
-                    <h3>Konfirmasi Kehadiran</h3>
-                    <form id="rsvpForm" class="rsvp-form">
-                        <input type="text" placeholder="Nama Lengkap" required>
-                        <select required>
-                            <option value="" disabled selected>Konfirmasi Kehadiran</option>
-                            <option value="hadir">Hadir dengan Senang Hati</option>
-                            <option value="tidak">Mohon Maaf, Tidak Dapat Hadir</option>
-                        </select>
-                        <textarea placeholder="Ucapan & Doa (opsional)" rows="3"></textarea>
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
-                        </button>
-                    </form>
+                <!-- Separator -->
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="member-info">
+                        <h2 class="fname">&</h2>
+                    </div>
                 </div>
 
-                <!-- Location Map -->
-               <!-- Ganti bagian map-section dengan ini: -->
-                <div class="map-section">
-                    <h3>Lokasi Acara</h3>
-                    <div class="map-container">
-                        <!-- Embed Google Maps dengan koordinat yang diberikan -->
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15839.758704247944!2d111.21245586977541!3d-7.461360800000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMjcnNDEuMCJTIDExMcKwMTInNTEuMCJF!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
-                            width="100%" 
-                            height="400" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                <!-- Groom -->
+                <div data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="container-imgphoto" style="background-image: url('https://invit.me/uploads/photo/tema12/pgroom.png');">
+                        <img src="https://invit.me/assets/themes/tema12/border.png" class="imgphoto" data-aos="rotate-c" data-aos-duration="1000">
                     </div>
-                    <div class="map-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Lokasi: Cepoko, Kec. Ngrambe, Ngawi</p>
-                        <a href="https://www.google.com/maps?q=-7.461388888888889,111.21416666666667" 
-                           target="_blank" 
-                           class="direction-btn">
-                            <i class="fas fa-directions"></i> Buka di Google Maps App
-                        </a>
-                        <!-- Tambahkan di akhir map-info -->
-                        <div class="qrcode-section">
-                            <h4><i class="fas fa-qrcode"></i> Scan untuk Lokasi</h4>
-                            <div id="qrcode"></div>
-                            <p class="qrcode-note">Scan QR Code untuk membuka lokasi di ponsel Anda</p>
+                    
+                    <div class="member-info">
+                        <h2 class="fname">Adji Sukmana</h2>
+                        <span class="common-size-2x">Putra dari Bapak Sariyono & Ibu Indiyah</span>
+                        <div class="m-t-15">
+                            <a href="#" class="m-r-10" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="#" class="m-r-10" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Photo Gallery -->
-                <div class="gallery-section">
-                    <h3>Galeri Foto</h3>
-                    <div class="gallery-grid">
-                        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+        <!-- Quran Quote Section -->
+        <section class="hero pricing" id="doa">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div class="section-title boxs">
+                    <div data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="boxs t-center">
+                            <div class="quote">
+                                <blockquote>
+                                    "Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berpikir." 
+                                    <br><br> - QS. Ar-Rum 21 -
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="hero pricing" id="event">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div class="section-title boxs">
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <h3 class="ftitle">Save The Date</h3>
+                    </div>
+                    
+                    <!-- Akad Nikah -->
+                    <div class="date-box" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="box p-b-30">
+                            <h3 class="ftitle">Akad Nikah</h3>
+                            <p><i class="fas fa-calendar m-r-5"></i> Minggu</p>
+                            <h2 class="date ftitle">31 Desember 2023</h2>
+                            <p><i class="fas fa-clock m-r-5"></i> 08:00 WIB s/d Selesai</p>
+                            <p><i class="fas fa-map-marker-alt m-r-5"></i> Masjid Al-Aqsha Peraksangkal Jonggrangan Kabupaten Klaten</p>
+                            
+                            <div class="btn-wrap m-t-20">
+                                <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+Trisna+and+Adji&dates=20231231T080000/20231231T000000" 
+                                   class="btn-buy" target="_blank">
+                                    <i class="fas fa-bell m-r-5"></i> Ingatkan Saya
+                                </a>
+                            </div>
+                            
+                            <div class="m-b-20 m-t-20">
+                                <a href="https://maps.google.com/?q=Masjid+Al-Aqsha+Peraksangkal+Jonggrangan+Kabupaten+Klaten" 
+                                   class="btn-learn-more btn-buy" target="_blank">
+                                    <i class="fas fa-map m-r-5"></i> Buka Peta
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resepsi -->
+                    <div class="date-box" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="box p-b-30">
+                            <h3 class="ftitle">Resepsi</h3>
+                            <p><i class="fas fa-calendar m-r-5"></i> Minggu</p>
+                            <h2 class="date ftitle">31 Desember 2023</h2>
+                            <p><i class="fas fa-clock m-r-5"></i> 08:00 WIB s/d Selesai</p>
+                            <p><i class="fas fa-map-marker-alt m-r-5"></i> Jln Tuanku Tambusai, Perumahan Permai Indah, Blok A Nomor 11.</p>
+                            
+                            <div class="btn-wrap m-t-20">
+                                <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+Trisna+and+Adji&dates=20231231T080000/20231231T000000" 
+                                   class="btn-buy" target="_blank">
+                                    <i class="fas fa-bell m-r-5"></i> Ingatkan Saya
+                                </a>
+                            </div>
+                            
+                            <div class="m-b-20 m-t-20">
+                                <a href="https://maps.google.com/?q=Jln+Tuanku+Tambusai+Perumahan+Permai+Indah+Blok+A+Nomor+11" 
+                                   class="btn-learn-more btn-buy" target="_blank">
+                                    <i class="fas fa-map m-r-5"></i> Buka Peta
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="hero" id="gallery">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div class="section-title">
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <h3 class="ftitle">Album Galeri</h3>
+                    </div>
+                </div>
+
+                <div class="boxs">
+                    <div id="lightgallery">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
+                                <a href="https://invit.me/uploads/photo/tema12/gallery1.jpg">
+                                    <img class="img-responsive" src="https://invit.me/uploads/photo/tema12/gallery1.jpg" alt="Gallery 1">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
+                                <a href="https://invit.me/uploads/photo/tema12/gallery2.jpg">
+                                    <img class="img-responsive" src="https://invit.me/uploads/photo/tema12/gallery2.jpg" alt="Gallery 2">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
+                                <a href="https://invit.me/uploads/photo/tema12/gallery3.jpg">
+                                    <img class="img-responsive" src="https://invit.me/uploads/photo/tema12/gallery3.jpg" alt="Gallery 3">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
+                                <a href="https://invit.me/uploads/photo/tema12/gallery4.jpg">
+                                    <img class="img-responsive" src="https://invit.me/uploads/photo/tema12/gallery4.jpg" alt="Gallery 4">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
+                                <a href="https://invit.me/uploads/photo/tema12/gallery5.jpg">
+                                    <img class="img-responsive" src="https://invit.me/uploads/photo/tema12/gallery5.jpg" alt="Gallery 5">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
+                                <a href="https://invit.me/uploads/photo/tema12/gallery6.jpg">
+                                    <img class="img-responsive" src="https://invit.me/uploads/photo/tema12/gallery6.jpg" alt="Gallery 6">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Story Section -->
+        <section class="hero" id="story">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div class="section-title">
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <h3 class="ftitle">Love Story</h3>
+                    </div>
+                </div>
+                
+                <div class="boxs">
+                    <div class="cd-timeline">
+                        <div class="cd-timeline__container">
+                            <!-- Story 1 -->
+                            <div class="cd-timeline__block" data-aos="fade-right" data-aos-duration="1000">
+                                <div class="cd-timeline__img">
+                                    <i class="fas fa-heart c-white"></i>
+                                </div>
+                                <div class="cd-timeline__content">
+                                    <h4 class="common-size-4x">First Date</h4>
+                                    <p>Pertama kali kami bertemu dan dikenalkan sebagai teman satu kampus dan kebetulan kami masih memiliki cerita masing-masing.</p>
+                                    <span class="cd-timeline__date">01 Januari 2022</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Story 2 -->
+                            <div class="cd-timeline__block" data-aos="fade-left" data-aos-duration="1000">
+                                <div class="cd-timeline__img">
+                                    <i class="fas fa-heart c-white"></i>
+                                </div>
+                                <div class="cd-timeline__content">
+                                    <h4 class="common-size-4x">Lamaran</h4>
+                                    <p>Setelah beberapa tahun kami saling kenal, semakin membuat kami yakin satu sama lain untuk melangkah lebih jauh. Sehingga kami yakinkan diri sampai di tahap pelamaran.</p>
+                                    <span class="cd-timeline__date">29 Juni 2022</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Story 3 -->
+                            <div class="cd-timeline__block" data-aos="fade-right" data-aos-duration="1000">
+                                <div class="cd-timeline__img">
+                                    <i class="fas fa-heart c-white"></i>
+                                </div>
+                                <div class="cd-timeline__content">
+                                    <h4 class="common-size-4x">The Wedding</h4>
+                                    <p>Akhir dari perjalanan pencarian kami masing-masing sampailah pada tahap kami untuk memulai awal cerita kami bersama sebagai keluarga yang In Syaa Allah kami yakin untuk membangunnya bersama.</p>
+                                    <span class="cd-timeline__date">31 Desember 2023</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="invitation-footer">
-            <p class="thank-you">Terima Kasih Atas Perhatiannya</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+        <footer class="hero" id="penutup">
+            <img src="https://invit.me/assets/themes/tema12/decor.png" class="imgheader">
+            <div class="t-center part">
+                <div class="section-title boxs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 ml-auto mr-auto">
+                                <div class="profile" data-aos="zoom-in" data-aos-duration="1000">
+                                    <img src="https://invit.me/uploads/photo/tema12/pfooter.png" alt="Trisna & Adji" class="img-fluid rounded-circle" style="max-width: 200px;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="section-title">
+                            <h3 class="fcover" data-aos="zoom-in" data-aos-duration="1000">Trisna & Adji</h3>
+                        </div>
+                        
+                        <div class="description text-center" data-aos="fade-up" data-aos-duration="1000">
+                            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i</p>
+                            <p>berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
+                            <p>Atas kehadiran serta doa restunya,</p>
+                            <p>kami ucapkan <b>terima kasih</b>.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="copyright">© 2025 | Made with <i class="fas fa-heart"></i> for Lila & Rais</p>
+            <div class="footerend"></div>
         </footer>
-    </main>
+    </div>
 
-    <!-- Confetti Animation -->
-    <div class="confetti-container"></div>
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-light navbar-expand fixed-bottom">
+        <ul class="navbar-nav nav-justified w-100">
+            <li class="nav-item">
+                <a href="#home" class="nav-link">
+                    <i class="fas fa-home"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#couple" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#event" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#gallery" class="nav-link">
+                    <i class="fas fa-images"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#story" class="nav-link">
+                    <i class="fas fa-book-open"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-    <script src="script.js"></script>
+    <!-- Music Player -->
+    <div class="musik">
+        <i id="musik" class="fas fa-music"></i>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="music" loop>
+        <source src="https://invit.me/assets/music/Christina%20Perri%20-%20A%20Thousand%20Years.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Countdown Timer
+        function updateTimer() {
+            const weddingDate = new Date("2023-12-31T08:00:00").getTime();
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
+            } else {
+                document.getElementById("timer").innerHTML = "<h3 class='ftitle'>Acara Sedang Berlangsung!</h3>";
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Loader Screen
+        document.querySelector('.btn-open').addEventListener('click', function() {
+            const loader = document.getElementById('loader-wrapper');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.getElementById('music').play();
+            }, 1500);
+        });
+
+        // Music Control
+        let isPlaying = true;
+        const music = document.getElementById('music');
+        const musicBtn = document.getElementById('musik');
+
+        musicBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.className = 'fas fa-play';
+            } else {
+                music.play();
+                musicBtn.className = 'fas fa-music';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Initialize LightGallery
+        lightGallery(document.getElementById('lightgallery'), {
+            thumbnail: true,
+            download: false,
+            selector: 'a'
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Auto-play music when page loads (after loader)
+        window.addEventListener('load', function() {
+            // Music will start when user clicks "Buka Undangan"
+        });
+    </script>
 </body>
 </html>
